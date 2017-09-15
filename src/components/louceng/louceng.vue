@@ -54,18 +54,18 @@
       <table>
         <thead>
           <tr>
-            <th>楼层数</th>
-            <th>单元</th>
-            <th v-for="item in items" track-by="$index">{{item}}单元</th>
+            <th rowspan="2" style="vertical-align: middle;width:105px ">楼层数</th>
+            <th style="width:105px ">单元</th>
+            <th v-for="item in items" track-by="$index" colspan="" v-el:cos>{{item}}单元</th>
           </tr>
           <tr>
-            <th>房号</th>
+            <th style="width:105px ">房号</th>
             <th v-for="item in lists" track-by="$index">{{item}}</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="ite in louList" track-by="$index">
-            <td>{{$index+1}}</td>
+            <td colspan="2">{{$index+1}}</td>
             <td v-for="item in lists" track-by="$index">{{$parent.$index+1}}{{item}}</td>
           </tr>
         </tbody>
@@ -81,7 +81,8 @@
         setValue: {
           loucen:3,
           rules:1,
-          danyuan:3
+          danyuan:3,
+          cosp:[]
         },
 
         hushuList: []
@@ -116,6 +117,9 @@
           }
         });
         return result;
+      },
+      cosp() {
+
       }
     }
   }
@@ -155,6 +159,7 @@
           background #f6f9fd
           border 1px solid #d6dfe6
           border-radius 5px
+          padding-left 10px
         .loucen
           display inline-block
           margin-right 240px
@@ -188,6 +193,7 @@
             width 10%
           table
             float left
+            width 90%
             height 90px
             margin-top 20px
             tr ,th
@@ -196,4 +202,41 @@
               background #f6f9fd
               color #616b88
               font-size 14px
+              border 1px solid #d6dfe6
+              input
+                width 60px
+                height 24px
+                border 1px solid #d6dfe6
+                border-radius 5px
+                padding-left 10px
+                color #616b88
+    .content
+      width 1600px
+      height 900px
+      box-sizing border-box
+      margin-top 30px
+      background #fff
+      color #616b88
+      font-size 16px
+      padding 60px 50px 130px 50px
+      table
+        width 100%
+        thead
+          width 100%
+          tr
+            width 100%
+            th
+              width 428px
+        tr ,th ,td
+          height 45px
+          line-height 45px
+          color #616b88
+          font-size 14px
+          border 1px solid #d6dfe6
+          text-align center
+        tr,th
+          background #f6f9fd
+        tbody
+          tr:nth-child(odd)
+            background #fff
 </style>
